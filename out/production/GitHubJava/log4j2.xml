@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5level %msg (дата - %d{HH:mm:ss})%n"/>
+        </Console>
+        <File name="file1" fileName="log1.log">
+            <PatternLayout pattern="%d{HH:mm:ss} %-5level %msg%n"/>
+        </File>
+        <File name="file2" fileName="log2.log">
+            <PatternLayout pattern="%-5level %msg (дата - %d{HH:mm:ss})%n"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Root level="Debug">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <Logger name="logging.file1" level="info" additivity="true">
+            <AppenderRef ref="file1" level="INFO"/>
+        </Logger>
+        <Logger name="logging.file2" level="info" additivity="true">
+            <AppenderRef ref="file2" level="INFO"/>
+        </Logger>
+    </Loggers>
+</Configuration>
